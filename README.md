@@ -1,4 +1,4 @@
-# rp2040-pac - PAC for Raspberry Pi RP235x microcontrollers
+# rp235x-pac - PAC for Raspberry Pi RP235x microcontrollers
 
 This is a [Peripheral Access Crate] for the Raspberry Pi [RP235x] dual-core
 Cortex-M33 / RISC-V microcontroller.
