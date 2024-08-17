@@ -1,8 +1,8 @@
 [package]
 name = "rp235x-pac"
-version = "0.6.0"
+version = "0.1.0"
 authors = ["The RP-RS team"]
-edition = "2018"
+edition = "2021"
 homepage = "https://github.com/rp-rs/rp235x-pac"
 description = "A Peripheral Access Crate for the Raspberry Pi RP235x microcontrollers"
 license = "BSD-3-Clause"

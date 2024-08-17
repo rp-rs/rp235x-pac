@@ -5,16 +5,16 @@ jobs:
     name: cargo-check
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
         with:
-          target: thumbv8m.main-none-eabi
-      - run: cargo build --target=thumbv8m.main-none-eabi
+          target: thumbv8m.main-none-eabihf
+      - run: cargo build --target=thumbv8m.main-none-eabihf
   check-riscv:
     name: cargo-check
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
         with:
           target: riscv32imac-unknown-none-elf

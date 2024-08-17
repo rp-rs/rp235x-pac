@@ -6,20 +6,20 @@ jobs:
     env:
       RUSTFLAGS: "-D warnings"
     steps:
-      - uses: actions/checkout@v3
-      - uses: dtolnay/rust-toolchain@1.64.0
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
         with:
           target: thumbv8m.main-none-eabihf
           components: clippy
-      - run: cargo clippy --target=thumbv8m.main-none-eabihf -- -D warnings
+      - run: cargo clippy --target=thumbv8m.main-none-eabihf
   clippy-check-riscv:
     runs-on: ubuntu-20.04
     env:
       RUSTFLAGS: "-D warnings"
     steps:
-      - uses: actions/checkout@v3
-      - uses: dtolnay/rust-toolchain@1.64.0
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
         with:
           target: riscv32imac-unknown-none-elf
           components: clippy
-      - run: cargo clippy --target=riscv32imac-unknown-none-elf -- -D warnings
+      - run: cargo clippy --target=riscv32imac-unknown-none-elf

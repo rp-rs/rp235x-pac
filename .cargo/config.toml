@@ -1,0 +1,3 @@
+[build]
+# Set a default target so the docs build
+target = "riscv32imac-unknown-none-elf"
