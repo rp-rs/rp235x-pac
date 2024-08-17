@@ -1,0 +1,21 @@
+on: [push, pull_request]
+name: Build and Test check
+jobs:
+  check-arm:
+    name: cargo-check
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          target: thumbv8m.main-none-eabi
+      - run: cargo build --target=thumbv8m.main-none-eabi
+  check-riscv:
+    name: cargo-check
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          target: riscv32imac-unknown-none-elf
+      - run: cargo build --target=riscv32imac-unknown-none-elf
