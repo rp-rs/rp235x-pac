@@ -16,7 +16,7 @@ the SVD file in the [pico-sdk v2.0.0].
 ## Licence
 
 The contents of this crate are auto-generated and licensed under the same terms
-as the underlying SVD file, which is licensed by Raspberry Pi (Trading)) Ltd
+as the underlying SVD file, which is licensed by Raspberry Pi (Trading) Ltd
 under a BSD-3-Clause licence.
 
 ## Changelog
