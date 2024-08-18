@@ -1,0 +1,5 @@
+atomics = false
+make_mod = true
+reexport_core_peripherals = false
+reexport_interrupt = true
+ident_formats_theme = "legacy"

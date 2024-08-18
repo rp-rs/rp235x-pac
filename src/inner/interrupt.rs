@@ -1,0 +1,187 @@
+#[doc = r"Enumeration of all the interrupts."]
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+#[repr(u16)]
+pub enum Interrupt {
+    #[doc = "0 - TIMER0_IRQ_0"]
+    TIMER0_IRQ_0 = 0,
+    #[doc = "1 - TIMER0_IRQ_1"]
+    TIMER0_IRQ_1 = 1,
+    #[doc = "2 - TIMER0_IRQ_2"]
+    TIMER0_IRQ_2 = 2,
+    #[doc = "3 - TIMER0_IRQ_3"]
+    TIMER0_IRQ_3 = 3,
+    #[doc = "4 - TIMER1_IRQ_0"]
+    TIMER1_IRQ_0 = 4,
+    #[doc = "5 - TIMER1_IRQ_1"]
+    TIMER1_IRQ_1 = 5,
+    #[doc = "6 - TIMER1_IRQ_2"]
+    TIMER1_IRQ_2 = 6,
+    #[doc = "7 - TIMER1_IRQ_3"]
+    TIMER1_IRQ_3 = 7,
+    #[doc = "8 - PWM_IRQ_WRAP_0"]
+    PWM_IRQ_WRAP_0 = 8,
+    #[doc = "9 - PWM_IRQ_WRAP_1"]
+    PWM_IRQ_WRAP_1 = 9,
+    #[doc = "10 - DMA_IRQ_0"]
+    DMA_IRQ_0 = 10,
+    #[doc = "11 - DMA_IRQ_1"]
+    DMA_IRQ_1 = 11,
+    #[doc = "12 - DMA_IRQ_2"]
+    DMA_IRQ_2 = 12,
+    #[doc = "13 - DMA_IRQ_3"]
+    DMA_IRQ_3 = 13,
+    #[doc = "14 - USBCTRL_IRQ"]
+    USBCTRL_IRQ = 14,
+    #[doc = "15 - PIO0_IRQ_0"]
+    PIO0_IRQ_0 = 15,
+    #[doc = "16 - PIO0_IRQ_1"]
+    PIO0_IRQ_1 = 16,
+    #[doc = "17 - PIO1_IRQ_0"]
+    PIO1_IRQ_0 = 17,
+    #[doc = "18 - PIO1_IRQ_1"]
+    PIO1_IRQ_1 = 18,
+    #[doc = "19 - PIO2_IRQ_0"]
+    PIO2_IRQ_0 = 19,
+    #[doc = "20 - PIO2_IRQ_1"]
+    PIO2_IRQ_1 = 20,
+    #[doc = "21 - IO_IRQ_BANK0"]
+    IO_IRQ_BANK0 = 21,
+    #[doc = "22 - IO_IRQ_BANK0_NS"]
+    IO_IRQ_BANK0_NS = 22,
+    #[doc = "23 - IO_IRQ_QSPI"]
+    IO_IRQ_QSPI = 23,
+    #[doc = "24 - IO_IRQ_QSPI_NS"]
+    IO_IRQ_QSPI_NS = 24,
+    #[doc = "25 - SIO_IRQ_FIFO"]
+    SIO_IRQ_FIFO = 25,
+    #[doc = "26 - SIO_IRQ_BELL"]
+    SIO_IRQ_BELL = 26,
+    #[doc = "27 - SIO_IRQ_FIFO_NS"]
+    SIO_IRQ_FIFO_NS = 27,
+    #[doc = "28 - SIO_IRQ_BELL_NS"]
+    SIO_IRQ_BELL_NS = 28,
+    #[doc = "29 - SIO_IRQ_MTIMECMP"]
+    SIO_IRQ_MTIMECMP = 29,
+    #[doc = "30 - CLOCKS_IRQ"]
+    CLOCKS_IRQ = 30,
+    #[doc = "31 - SPI0_IRQ"]
+    SPI0_IRQ = 31,
+    #[doc = "32 - SPI1_IRQ"]
+    SPI1_IRQ = 32,
+    #[doc = "33 - UART0_IRQ"]
+    UART0_IRQ = 33,
+    #[doc = "34 - UART1_IRQ"]
+    UART1_IRQ = 34,
+    #[doc = "35 - ADC_IRQ_FIFO"]
+    ADC_IRQ_FIFO = 35,
+    #[doc = "36 - I2C0_IRQ"]
+    I2C0_IRQ = 36,
+    #[doc = "37 - I2C1_IRQ"]
+    I2C1_IRQ = 37,
+    #[doc = "38 - OTP_IRQ"]
+    OTP_IRQ = 38,
+    #[doc = "39 - TRNG_IRQ"]
+    TRNG_IRQ = 39,
+    #[doc = "42 - PLL_SYS_IRQ"]
+    PLL_SYS_IRQ = 42,
+    #[doc = "43 - PLL_USB_IRQ"]
+    PLL_USB_IRQ = 43,
+    #[doc = "44 - POWMAN_IRQ_POW"]
+    POWMAN_IRQ_POW = 44,
+    #[doc = "45 - POWMAN_IRQ_TIMER"]
+    POWMAN_IRQ_TIMER = 45,
+}
+#[doc = r" TryFromInterruptError"]
+#[derive(Debug, Copy, Clone)]
+pub struct TryFromInterruptError(());
+impl Interrupt {
+    #[doc = r" Attempt to convert a given value into an `Interrupt`"]
+    #[inline]
+    pub fn try_from(value: u8) -> Result<Self, TryFromInterruptError> {
+        match value {
+            0 => Ok(Interrupt::TIMER0_IRQ_0),
+            1 => Ok(Interrupt::TIMER0_IRQ_1),
+            2 => Ok(Interrupt::TIMER0_IRQ_2),
+            3 => Ok(Interrupt::TIMER0_IRQ_3),
+            4 => Ok(Interrupt::TIMER1_IRQ_0),
+            5 => Ok(Interrupt::TIMER1_IRQ_1),
+            6 => Ok(Interrupt::TIMER1_IRQ_2),
+            7 => Ok(Interrupt::TIMER1_IRQ_3),
+            8 => Ok(Interrupt::PWM_IRQ_WRAP_0),
+            9 => Ok(Interrupt::PWM_IRQ_WRAP_1),
+            10 => Ok(Interrupt::DMA_IRQ_0),
+            11 => Ok(Interrupt::DMA_IRQ_1),
+            12 => Ok(Interrupt::DMA_IRQ_2),
+            13 => Ok(Interrupt::DMA_IRQ_3),
+            14 => Ok(Interrupt::USBCTRL_IRQ),
+            15 => Ok(Interrupt::PIO0_IRQ_0),
+            16 => Ok(Interrupt::PIO0_IRQ_1),
+            17 => Ok(Interrupt::PIO1_IRQ_0),
+            18 => Ok(Interrupt::PIO1_IRQ_1),
+            19 => Ok(Interrupt::PIO2_IRQ_0),
+            20 => Ok(Interrupt::PIO2_IRQ_1),
+            21 => Ok(Interrupt::IO_IRQ_BANK0),
+            22 => Ok(Interrupt::IO_IRQ_BANK0_NS),
+            23 => Ok(Interrupt::IO_IRQ_QSPI),
+            24 => Ok(Interrupt::IO_IRQ_QSPI_NS),
+            25 => Ok(Interrupt::SIO_IRQ_FIFO),
+            26 => Ok(Interrupt::SIO_IRQ_BELL),
+            27 => Ok(Interrupt::SIO_IRQ_FIFO_NS),
+            28 => Ok(Interrupt::SIO_IRQ_BELL_NS),
+            29 => Ok(Interrupt::SIO_IRQ_MTIMECMP),
+            30 => Ok(Interrupt::CLOCKS_IRQ),
+            31 => Ok(Interrupt::SPI0_IRQ),
+            32 => Ok(Interrupt::SPI1_IRQ),
+            33 => Ok(Interrupt::UART0_IRQ),
+            34 => Ok(Interrupt::UART1_IRQ),
+            35 => Ok(Interrupt::ADC_IRQ_FIFO),
+            36 => Ok(Interrupt::I2C0_IRQ),
+            37 => Ok(Interrupt::I2C1_IRQ),
+            38 => Ok(Interrupt::OTP_IRQ),
+            39 => Ok(Interrupt::TRNG_IRQ),
+            42 => Ok(Interrupt::PLL_SYS_IRQ),
+            43 => Ok(Interrupt::PLL_USB_IRQ),
+            44 => Ok(Interrupt::POWMAN_IRQ_POW),
+            45 => Ok(Interrupt::POWMAN_IRQ_TIMER),
+            _ => Err(TryFromInterruptError(())),
+        }
+    }
+}
+#[cfg(feature = "rt")]
+#[macro_export]
+#[doc = r" Assigns a handler to an interrupt"]
+#[doc = r""]
+#[doc = r" This macro takes two arguments: the name of an interrupt and the path to the"]
+#[doc = r" function that will be used as the handler of that interrupt. That function"]
+#[doc = r" must have signature `fn()`."]
+#[doc = r""]
+#[doc = r" Optionally, a third argument may be used to declare interrupt local data."]
+#[doc = r" The handler will have exclusive access to these *local* variables on each"]
+#[doc = r" invocation. If the third argument is used then the signature of the handler"]
+#[doc = r" function must be `fn(&mut $NAME::Locals)` where `$NAME` is the first argument"]
+#[doc = r" passed to the macro."]
+#[doc = r""]
+#[doc = r" # Example"]
+#[doc = r""]
+#[doc = r" ``` ignore"]
+#[doc = r" interrupt!(TIM2, periodic);"]
+#[doc = r""]
+#[doc = r" fn periodic() {"]
+#[doc = r#"     print!(".");"#]
+#[doc = r" }"]
+#[doc = r""]
+#[doc = r" interrupt!(TIM3, tick, locals: {"]
+#[doc = r"     tick: bool = false;"]
+#[doc = r" });"]
+#[doc = r""]
+#[doc = r" fn tick(locals: &mut TIM3::Locals) {"]
+#[doc = r"     locals.tick = !locals.tick;"]
+#[doc = r""]
+#[doc = r"     if locals.tick {"]
+#[doc = r#"         println!("Tick");"#]
+#[doc = r"     } else {"]
+#[doc = r#"         println!("Tock");"#]
+#[doc = r"     }"]
+#[doc = r" }"]
+#[doc = r" ```"]
+macro_rules ! interrupt { ($ NAME : ident , $ path : path , locals : { $ ($ lvar : ident : $ lty : ty = $ lval : expr ;) * }) => { # [allow (non_snake_case)] mod $ NAME { pub struct Locals { $ (pub $ lvar : $ lty ,) * } } # [allow (non_snake_case)] # [no_mangle] pub extern "C" fn $ NAME () { let _ = $ crate :: interrupt :: Interrupt :: $ NAME ; static mut LOCALS : self :: $ NAME :: Locals = self :: $ NAME :: Locals { $ ($ lvar : $ lval ,) * } ; let f : fn (& mut self :: $ NAME :: Locals) = $ path ; f (unsafe { & mut LOCALS }) ; } } ; ($ NAME : ident , $ path : path) => { # [allow (non_snake_case)] # [no_mangle] pub extern "C" fn $ NAME () { let _ = $ crate :: interrupt :: Interrupt :: $ NAME ; let f : fn () = $ path ; f () ; } } }
