@@ -1,24 +1,32 @@
 [package]
-name = "rp235x-pac"
-version = "0.1.0"
-authors = ["The RP-RS team"]
+authors = ["The rp-rs Developers"]
+description = "A Peripheral Access Crate for the Raspberry Pi RP235x microcontrollers"
 edition = "2021"
 homepage = "https://github.com/rp-rs/rp235x-pac"
-description = "A Peripheral Access Crate for the Raspberry Pi RP235x microcontrollers"
 license = "BSD-3-Clause"
+name = "rp235x-pac"
 repository = "https://github.com/rp-rs/rp235x-pac"
+version = "0.1.0"
 
 [package.metadata.docs.rs]
 features = ["rt"]
 targets = ["thumbv8m.main-none-eabihf", "riscv32imac-unknown-none-elf"]
 
+# DO NOT include arch-specific crates here.
 [dependencies]
+# Non-optional dependencies. Keep these sorted by name.
 vcell = "0.1.3"
-critical-section = { optional = true, version = "1.0.0" }
 
+# Optional dependencies. Keep these sorted by name.
+critical-section = {optional = true, version = "1.0.0"}
+
+# These dependencies only apply in Arm mode.
 [target.'thumbv8m.main-none-eabihf'.dependencies]
+# Non-optional dependencies. Keep these sorted by name.
 cortex-m = "0.7.3"
-cortex-m-rt = { version = ">=0.6.15,<0.8", optional = true }
+
+# Optional dependencies. Keep these sorted by name.
+cortex-m-rt = {version = ">=0.6.15,<0.8", optional = true}
 
 [features]
 rt = ["cortex-m-rt", "cortex-m-rt/device"]
