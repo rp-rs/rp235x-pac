@@ -62,6 +62,12 @@ extern "C" {
     fn PLL_USB_IRQ();
     fn POWMAN_IRQ_POW();
     fn POWMAN_IRQ_TIMER();
+    fn SPAREIRQ_IRQ_0();
+    fn SPAREIRQ_IRQ_1();
+    fn SPAREIRQ_IRQ_2();
+    fn SPAREIRQ_IRQ_3();
+    fn SPAREIRQ_IRQ_4();
+    fn SPAREIRQ_IRQ_5();
 }
 #[doc(hidden)]
 #[repr(C)]
@@ -72,7 +78,7 @@ pub union Vector {
 #[cfg(feature = "rt")]
 #[doc(hidden)]
 #[no_mangle]
-pub static __EXTERNAL_INTERRUPTS: [Vector; 46] = [
+pub static __EXTERNAL_INTERRUPTS: [Vector; 52] = [
     Vector {
         _handler: TIMER0_IRQ_0,
     },
@@ -194,6 +200,24 @@ pub static __EXTERNAL_INTERRUPTS: [Vector; 46] = [
     },
     Vector {
         _handler: POWMAN_IRQ_TIMER,
+    },
+    Vector {
+        _handler: SPAREIRQ_IRQ_0,
+    },
+    Vector {
+        _handler: SPAREIRQ_IRQ_1,
+    },
+    Vector {
+        _handler: SPAREIRQ_IRQ_2,
+    },
+    Vector {
+        _handler: SPAREIRQ_IRQ_3,
+    },
+    Vector {
+        _handler: SPAREIRQ_IRQ_4,
+    },
+    Vector {
+        _handler: SPAREIRQ_IRQ_5,
     },
 ];
 #[doc(hidden)]

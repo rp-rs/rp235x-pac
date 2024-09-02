@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-* No changes
+* Add SPAREIRQ_* interrupts
 
 ## [0.1.0] 2024-08-18 ([Crates.io](https://crates.io/crates/rp235x-pac/0.1.0) | [Github](https://github.com/rp-rs/rp235x-pac/releases/tag/v0.1.0))
 
