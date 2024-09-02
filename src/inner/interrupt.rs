@@ -90,6 +90,18 @@ pub enum Interrupt {
     POWMAN_IRQ_POW = 44,
     #[doc = "45 - POWMAN_IRQ_TIMER"]
     POWMAN_IRQ_TIMER = 45,
+    #[doc = "46 - Spare IRQ 0"]
+    SPAREIRQ_IRQ_0 = 46,
+    #[doc = "47 - Spare IRQ 1"]
+    SPAREIRQ_IRQ_1 = 47,
+    #[doc = "48 - Spare IRQ 2"]
+    SPAREIRQ_IRQ_2 = 48,
+    #[doc = "49 - Spare IRQ 3"]
+    SPAREIRQ_IRQ_3 = 49,
+    #[doc = "50 - Spare IRQ 4"]
+    SPAREIRQ_IRQ_4 = 50,
+    #[doc = "51 - Spare IRQ 5"]
+    SPAREIRQ_IRQ_5 = 51,
 }
 #[doc = r" TryFromInterruptError"]
 #[derive(Debug, Copy, Clone)]
@@ -143,6 +155,12 @@ impl Interrupt {
             43 => Ok(Interrupt::PLL_USB_IRQ),
             44 => Ok(Interrupt::POWMAN_IRQ_POW),
             45 => Ok(Interrupt::POWMAN_IRQ_TIMER),
+            46 => Ok(Interrupt::SPAREIRQ_IRQ_0),
+            47 => Ok(Interrupt::SPAREIRQ_IRQ_1),
+            48 => Ok(Interrupt::SPAREIRQ_IRQ_2),
+            49 => Ok(Interrupt::SPAREIRQ_IRQ_3),
+            50 => Ok(Interrupt::SPAREIRQ_IRQ_4),
+            51 => Ok(Interrupt::SPAREIRQ_IRQ_5),
             _ => Err(TryFromInterruptError(())),
         }
     }
