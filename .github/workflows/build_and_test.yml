@@ -10,6 +10,15 @@ jobs:
         with:
           target: thumbv8m.main-none-eabihf
       - run: cargo build --target=thumbv8m.main-none-eabihf
+  check-arm-softfloat:
+    name: cargo-check (ARM softfloat)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          target: thumbv8m.main-none-eabi
+      - run: cargo build --target=thumbv8m.main-none-eabi
   check-riscv:
     name: cargo-check (RISC-V)
     runs-on: ubuntu-24.04
@@ -19,6 +28,16 @@ jobs:
         with:
           target: riscv32imac-unknown-none-elf
       - run: cargo build --target=riscv32imac-unknown-none-elf
+  check-arm-softfloat-msrv:
+    name: cargo-check on MSRV (ARM softfloat)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          target: thumbv8m.main-none-eabi
+          toolchain: 1.81.0
+      - run: cargo build --target=thumbv8m.main-none-eabi
   check-arm-msrv:
     name: cargo-check on MSRV (ARM)
     runs-on: ubuntu-24.04
