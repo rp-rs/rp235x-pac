@@ -28,7 +28,7 @@ jobs:
         with:
           target: riscv32imac-unknown-none-elf
       - run: cargo build --target=riscv32imac-unknown-none-elf
-  check-arm-msrv:
+  check-arm-softfloat-msrv:
     name: cargo-check on MSRV (ARM softfloat)
     runs-on: ubuntu-24.04
     steps:
@@ -38,7 +38,7 @@ jobs:
           target: thumbv8m.main-none-eabi
           toolchain: 1.81.0
       - run: cargo build --target=thumbv8m.main-none-eabi
-  check-arm-softfloat-msrv:
+  check-arm-msrv:
     name: cargo-check on MSRV (ARM)
     runs-on: ubuntu-24.04
     steps:
