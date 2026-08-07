@@ -384,7 +384,7 @@ USB:
 SIO:
   _modify:
     "SPINLOCK[0123456789],SPINLOCK[12][0123456789],SPINLOCK3[01]":
-      access: "read-write" 
+      access: "read-write"
   _array:
     "SPINLOCK[0123456789],SPINLOCK[12][0123456789],SPINLOCK3[01]":
       _start_from_zero: true
@@ -430,6 +430,15 @@ USB_DPRAM:
         description: "The interval the host controller should poll this endpoint. Only applicable for interrupt endpoints. Specified in ms - 1. For example: a value of 9 would poll the endpoint every 10ms."
         bitOffset: 16
         bitWidth: 10
+
+TRNG:
+  _array:
+    "EHR_DATA[012345]":
+      description: "RNG collected bits. Reading EHR_DATA[5] clears the contents of all 6 registers."
+      _modify:
+        "EHR_DATA0":
+          name: "EHR_DATA"
+          description: "Entropy Holding Register (EHR) - RNG output register."
 
 _add:
   SW_IRQ:
