@@ -7,24 +7,19 @@ pub struct RegisterBlock {
     rng_icr: RNG_ICR,
     trng_config: TRNG_CONFIG,
     trng_valid: TRNG_VALID,
-    ehr_data0: EHR_DATA0,
-    ehr_data1: EHR_DATA1,
-    ehr_data2: EHR_DATA2,
-    ehr_data3: EHR_DATA3,
-    ehr_data4: EHR_DATA4,
-    ehr_data5: EHR_DATA5,
+    ehr_data: [EHR_DATA; 6],
     rnd_source_enable: RND_SOURCE_ENABLE,
     sample_cnt1: SAMPLE_CNT1,
     autocorr_statistic: AUTOCORR_STATISTIC,
     trng_debug_control: TRNG_DEBUG_CONTROL,
-    _reserved15: [u8; 0x04],
+    _reserved10: [u8; 0x04],
     trng_sw_reset: TRNG_SW_RESET,
-    _reserved16: [u8; 0x70],
+    _reserved11: [u8; 0x70],
     rng_debug_en_input: RNG_DEBUG_EN_INPUT,
     trng_busy: TRNG_BUSY,
     rst_bits_counter: RST_BITS_COUNTER,
     rng_version: RNG_VERSION,
-    _reserved20: [u8; 0x1c],
+    _reserved15: [u8; 0x1c],
     rng_bist_cntr_0: RNG_BIST_CNTR_0,
     rng_bist_cntr_1: RNG_BIST_CNTR_1,
     rng_bist_cntr_2: RNG_BIST_CNTR_2,
@@ -55,35 +50,18 @@ impl RegisterBlock {
     pub const fn trng_valid(&self) -> &TRNG_VALID {
         &self.trng_valid
     }
-    #[doc = "0x114 - RNG collected bits."]
+    #[doc = "0x114..0x12c - RNG collected bits. Reading EHR_DATA\\[5\\]
+clears the contents of all 6 registers."]
     #[inline(always)]
-    pub const fn ehr_data0(&self) -> &EHR_DATA0 {
-        &self.ehr_data0
+    pub const fn ehr_data(&self, n: usize) -> &EHR_DATA {
+        &self.ehr_data[n]
     }
-    #[doc = "0x118 - RNG collected bits."]
+    #[doc = "Iterator for array of:"]
+    #[doc = "0x114..0x12c - RNG collected bits. Reading EHR_DATA\\[5\\]
+clears the contents of all 6 registers."]
     #[inline(always)]
-    pub const fn ehr_data1(&self) -> &EHR_DATA1 {
-        &self.ehr_data1
-    }
-    #[doc = "0x11c - RNG collected bits."]
-    #[inline(always)]
-    pub const fn ehr_data2(&self) -> &EHR_DATA2 {
-        &self.ehr_data2
-    }
-    #[doc = "0x120 - RNG collected bits."]
-    #[inline(always)]
-    pub const fn ehr_data3(&self) -> &EHR_DATA3 {
-        &self.ehr_data3
-    }
-    #[doc = "0x124 - RNG collected bits."]
-    #[inline(always)]
-    pub const fn ehr_data4(&self) -> &EHR_DATA4 {
-        &self.ehr_data4
-    }
-    #[doc = "0x128 - RNG collected bits."]
-    #[inline(always)]
-    pub const fn ehr_data5(&self) -> &EHR_DATA5 {
-        &self.ehr_data5
+    pub fn ehr_data_iter(&self) -> impl Iterator<Item = &EHR_DATA> {
+        self.ehr_data.iter()
     }
     #[doc = "0x12c - Enable signal for the random source."]
     #[inline(always)]
@@ -191,60 +169,17 @@ module"]
 pub type TRNG_VALID = crate::Reg<trng_valid::TRNG_VALID_SPEC>;
 #[doc = "192 bit collection indication."]
 pub mod trng_valid;
-#[doc = "EHR_DATA0 (rw) register accessor: RNG collected bits.  
+#[doc = "EHR_DATA (rw) register accessor: RNG collected bits. Reading EHR_DATA\\[5\\]
+clears the contents of all 6 registers.  
 
-You can [`read`](crate::Reg::read) this register and get [`ehr_data0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ehr_data0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).  
+You can [`read`](crate::Reg::read) this register and get [`ehr_data::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ehr_data::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).  
 
-For information about available fields see [`mod@ehr_data0`]
+For information about available fields see [`mod@ehr_data`]
 module"]
-pub type EHR_DATA0 = crate::Reg<ehr_data0::EHR_DATA0_SPEC>;
-#[doc = "RNG collected bits."]
-pub mod ehr_data0;
-#[doc = "EHR_DATA1 (rw) register accessor: RNG collected bits.  
-
-You can [`read`](crate::Reg::read) this register and get [`ehr_data1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ehr_data1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).  
-
-For information about available fields see [`mod@ehr_data1`]
-module"]
-pub type EHR_DATA1 = crate::Reg<ehr_data1::EHR_DATA1_SPEC>;
-#[doc = "RNG collected bits."]
-pub mod ehr_data1;
-#[doc = "EHR_DATA2 (rw) register accessor: RNG collected bits.  
-
-You can [`read`](crate::Reg::read) this register and get [`ehr_data2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ehr_data2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).  
-
-For information about available fields see [`mod@ehr_data2`]
-module"]
-pub type EHR_DATA2 = crate::Reg<ehr_data2::EHR_DATA2_SPEC>;
-#[doc = "RNG collected bits."]
-pub mod ehr_data2;
-#[doc = "EHR_DATA3 (rw) register accessor: RNG collected bits.  
-
-You can [`read`](crate::Reg::read) this register and get [`ehr_data3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ehr_data3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).  
-
-For information about available fields see [`mod@ehr_data3`]
-module"]
-pub type EHR_DATA3 = crate::Reg<ehr_data3::EHR_DATA3_SPEC>;
-#[doc = "RNG collected bits."]
-pub mod ehr_data3;
-#[doc = "EHR_DATA4 (rw) register accessor: RNG collected bits.  
-
-You can [`read`](crate::Reg::read) this register and get [`ehr_data4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ehr_data4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).  
-
-For information about available fields see [`mod@ehr_data4`]
-module"]
-pub type EHR_DATA4 = crate::Reg<ehr_data4::EHR_DATA4_SPEC>;
-#[doc = "RNG collected bits."]
-pub mod ehr_data4;
-#[doc = "EHR_DATA5 (rw) register accessor: RNG collected bits.  
-
-You can [`read`](crate::Reg::read) this register and get [`ehr_data5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ehr_data5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).  
-
-For information about available fields see [`mod@ehr_data5`]
-module"]
-pub type EHR_DATA5 = crate::Reg<ehr_data5::EHR_DATA5_SPEC>;
-#[doc = "RNG collected bits."]
-pub mod ehr_data5;
+pub type EHR_DATA = crate::Reg<ehr_data::EHR_DATA_SPEC>;
+#[doc = "RNG collected bits. Reading EHR_DATA\\[5\\]
+clears the contents of all 6 registers."]
+pub mod ehr_data;
 #[doc = "RND_SOURCE_ENABLE (rw) register accessor: Enable signal for the random source.  
 
 You can [`read`](crate::Reg::read) this register and get [`rnd_source_enable::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rnd_source_enable::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).  

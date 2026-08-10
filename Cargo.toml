@@ -7,7 +7,7 @@ license = "BSD-3-Clause"
 name = "rp235x-pac"
 repository = "https://github.com/rp-rs/rp235x-pac"
 version = "0.2.0"
-rust-version = "1.81.0"
+rust-version = "1.85.0"
 
 [package.metadata.docs.rs]
 features = ["rt"]

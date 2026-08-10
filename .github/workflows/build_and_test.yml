@@ -36,7 +36,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@master
         with:
           target: thumbv8m.main-none-eabi
-          toolchain: 1.81.0
+          toolchain: 1.85.0
       - run: cargo build --target=thumbv8m.main-none-eabi
   check-arm-msrv:
     name: cargo-check on MSRV (ARM)
@@ -46,7 +46,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@master
         with:
           target: thumbv8m.main-none-eabihf
-          toolchain: 1.81.0
+          toolchain: 1.85.0
       - run: cargo build --target=thumbv8m.main-none-eabihf
   check-riscv-msrv:
     name: cargo-check on MSRV (RISC-V)
@@ -56,5 +56,5 @@ jobs:
       - uses: dtolnay/rust-toolchain@master
         with:
           target: riscv32imac-unknown-none-elf
-          toolchain: 1.81.0
+          toolchain: 1.85.0
       - run: cargo build --target=riscv32imac-unknown-none-elf

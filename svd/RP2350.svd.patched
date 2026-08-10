@@ -44356,84 +44356,17 @@
           </fields>
         </register>
         <register>
-          <name>EHR_DATA0</name>
-          <description>RNG collected bits.</description>
+          <dim>6</dim>
+          <dimIncrement>0x4</dimIncrement>
+          <dimIndex>0-5</dimIndex>
+          <name>EHR_DATA%s</name>
+          <description>RNG collected bits. Reading EHR_DATA[5] clears the contents of all 6 registers.</description>
           <addressOffset>0x114</addressOffset>
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>EHR_DATA0</name>
-              <description>Bits [31:0] of Entropy Holding Register (EHR) - RNG output register</description>
-              <bitRange>[31:0]</bitRange>
-              <access>read-only</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>EHR_DATA1</name>
-          <description>RNG collected bits.</description>
-          <addressOffset>0x118</addressOffset>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>EHR_DATA1</name>
-              <description>Bits [63:32] of Entropy Holding Register (EHR) - RNG output register</description>
-              <bitRange>[31:0]</bitRange>
-              <access>read-only</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>EHR_DATA2</name>
-          <description>RNG collected bits.</description>
-          <addressOffset>0x11C</addressOffset>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>EHR_DATA2</name>
-              <description>Bits [95:64] of Entropy Holding Register (EHR) - RNG output register</description>
-              <bitRange>[31:0]</bitRange>
-              <access>read-only</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>EHR_DATA3</name>
-          <description>RNG collected bits.</description>
-          <addressOffset>0x120</addressOffset>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>EHR_DATA3</name>
-              <description>Bits [127:96] of Entropy Holding Register (EHR) - RNG output register</description>
-              <bitRange>[31:0]</bitRange>
-              <access>read-only</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>EHR_DATA4</name>
-          <description>RNG collected bits.</description>
-          <addressOffset>0x124</addressOffset>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>EHR_DATA4</name>
-              <description>Bits [159:128] of Entropy Holding Register (EHR) - RNG output register</description>
-              <bitRange>[31:0]</bitRange>
-              <access>read-only</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>EHR_DATA5</name>
-          <description>RNG collected bits.</description>
-          <addressOffset>0x128</addressOffset>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>EHR_DATA5</name>
-              <description>Bits [191:160] of Entropy Holding Register (EHR) - RNG output register</description>
+              <name>EHR_DATA</name>
+              <description>Entropy Holding Register (EHR) - RNG output register.</description>
               <bitRange>[31:0]</bitRange>
               <access>read-only</access>
             </field>
